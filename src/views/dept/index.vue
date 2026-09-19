@@ -102,11 +102,11 @@ const handleDelete = (row) => {
 
 // ==================== 数据加载 ====================
 
-// 加载部门列表（根据最后修改时间倒序排序）
+// 加载部门列表（根据最后修改时间正序排序，新建部门自动展示在最后一行）
 const loadDeptList = async () => {
   const data = await getDeptList();
   tableData.value = [...data].sort((a, b) =>
-    (b.updateTime || '').localeCompare(a.updateTime || ''),
+    (a.updateTime || '').localeCompare(b.updateTime || ''),
   );
 };
 
